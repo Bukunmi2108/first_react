@@ -1,0 +1,473 @@
+*{
+  font-family: -system-ui,apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  letter-spacing: 2px;
+}
+
+body{
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+img{
+  width: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+:root{
+  --bg-color: #0a0a0a;
+  --text-color: #f1f1f1;
+  --grad1: linear-gradient(
+    45deg,
+    #F94bc7,
+    #F6b33c
+  )
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 80%;
+  margin: 0px auto;
+  padding: 0.8rem;
+  box-shadow: 0px 0px 2px var(--text-color);
+  border-radius: 1rem;
+  background: var(--bg-color);
+  z-index: 100;
+}
+
+.logo{
+  cursor: pointer;
+  text-align: left;
+  font-weight: 600;
+  flex: 1;
+  color: var(--text-color);
+}
+
+.navlink{
+  display: flex;
+  justify-content: space-around;
+  flex: 2;
+}
+
+.navlink li a{
+  color: var(--text-color);
+}
+
+.btns{
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-p{
+  padding: 8px 10px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-color);
+  background: var(--bg-color);
+  text-transform: capitalize;
+  border: solid 1px var(--text-color);
+  border-radius: 5px;
+  position: relative;
+  z-index: 2;
+  transition: 1s;
+}
+
+.btn-p::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--text-color);
+  z-index: -1;
+  transition: 1s;
+  border: var(--bg-color);
+}
+
+.btn-p:hover::before{
+  width: 100%;
+}
+.btn-p:hover{
+  color: var(--bg-color);
+  border-color: var(--bg-color);
+}
+
+
+
+
+/*MAIN*/
+.main{
+  z-index: -10;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content{
+  max-width: 1000px;
+  margin: 50px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.herotext{
+  width: 80%;
+  text-align: center;
+  font-size: 10vmin;
+  text-transform: capitalize;
+  line-height: 70px;
+  color: var(--text-color);
+}
+
+.name{
+  text-shadow: 0px 0px 10px #3a3a3a;
+}
+
+
+/*SECTION ABOUT*/
+
+.about,
+section{
+  width: 100%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding-block: 5rem;
+}
+
+.about::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--text-color);
+  transform: skewY(-2deg);
+  z-index: -1;
+}
+
+.about::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #585858;
+  transform: skewY(2deg);
+  z-index: -2;
+}
+
+.subheading{
+  font-size: 12vmin;
+  color: var(--bg-color);
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.description{
+  text-transform: capitalize;
+}
+
+/*Pricing*/
+.pricing,
+.pricing .subheading{
+  color: var(--text-color);
+}
+
+.pricinggrid{
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+
+.price{
+  padding: 3rem;
+  color: var(--bg-color);
+  background: transparent;
+  box-shadow: 0px 0px 2px var(--text-color);
+  border-radius: 0.2rem;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  position: relative;
+}
+
+.price::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: var(--text-color);
+  transform: skewY(2deg);
+}
+
+.pricetag{
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+
+
+/*PROFILE*/
+.profile{
+  background: var(--grad1);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 5rem;
+}
+
+.profile::after,
+.profile::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3rem;
+  z-index: 3;
+  background-color: var(--bg-color);
+  mask-image: url(circle.svg);
+  mask-repeat: no-repeat;
+}
+
+.profile::after{
+  top: -1.5rem;
+}
+
+.profile::before{
+  bottom: -1.5rem;
+} 
+
+
+.p{
+  width: 300px;
+  background: var(--text-color);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px #58585885;
+}
+
+.p img{
+  border-top-left-radius: 0.9rem;
+  border-top-right-radius: 0.9rem;
+}
+
+.pro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.profilename{
+  margin-bottom: 8px;
+}
+
+.asec{
+  padding-inline: 10px;
+}
+
+.asec h4{
+  margin-bottom: 15px;
+}
+
+/*AIRBNB NAV*/
+
+.airbnbnav{
+  width: 100%;
+  background-color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.airbnbnav img{
+  width: 10rem;
+}
+
+/*AIRBNB*/
+.airbnb{
+  padding-block: 2rem;
+  background: var(--text-color);
+  z-index: -1;
+}
+
+.bnbhero{
+  margin: 1rem;
+  max-width: 600px;
+}
+
+.staticimgs{
+  display: flex;
+  align-items: center;
+}
+
+.imgcon{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-inline: 0.2rem;
+
+}
+
+.imgcon img{
+  margin: 0.2rem;
+  border-radius: 1rem;
+}
+
+/*bnbherotext*/
+
+.bnbherotext h2{
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/*bnb carousel*/
+
+.airbnb1{
+  background: var(--text-color);
+  width: 100%;
+}
+
+.carousel-container{
+  max-width: 800px; /* 
+  Adjust as needed */
+  margin: 0 auto; /* Center the carousel horizontally */
+}
+.bnb--carousel{
+  margin: 0.5rem;
+  max-width: 600px;
+  overflow-x: scroll; 
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; /* Smooth scrolling animation */
+  white-space: nowrap; /* Prevents line breaks */
+}
+
+/* .bnb--carousel::-webkit-scrollbar {
+  display: none; /* Hide default scrollbar*/
+
+.bnb--product{
+  width: 200px;
+  display: inline-block;
+  position: relative;
+  background: #ffffff5e;
+  border-radius: 1rem;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  margin: 0.5rem;
+  scroll-snap-align: start;
+}
+
+.bnb--product--image{
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 200px;
+  border-radius: 1rem;
+}
+
+.bnb--product--tag{
+  font-size: 0.6rem;
+  background: #f1f1f173;
+  text-transform: capitalize;
+  border-radius: 20%;
+  backdrop-filter: blur(10px);
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.bnb--product--stats{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: grey;
+  font-size: 0.8rem;
+}
+
+.bnb--product--stats span{
+  margin-inline: 5px;
+}
+
+.bnb--product--stats .star{
+  background: var(--grad1);
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+}
+
+.bnb--product--title{
+  width: 100%;
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  text-wrap: nowrap;
+  margin-block: 0.7rem;
+}
+
+.product--price{
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+
+
+
+/*MEDIA QUERIES*/
+
+@media (max-width:600px) {
+  .navlink{
+    display: none;
+  }
+  .content{
+    margin: 20px;
+  }
+  .bnb--carousel{
+    max-width: 350px;
+  }
+}
+
+@media (max-width:400px) {
+  .btns{
+    display: none;
+    margin-top: 20px;
+  }
+}
